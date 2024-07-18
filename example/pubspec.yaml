@@ -13,7 +13,9 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  localization: ^2.1.0
+  #localization: ^2.1.0
+
+  flutter_intl: any
 
 dev_dependencies:
   custom_lint: ^0.6.4
@@ -22,7 +24,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  smart_translate_lints:
+  smarter_translate_lints:
     path: ../
 
 flutter:
@@ -31,5 +33,5 @@ flutter:
   assets:
     - lib/i18n/
 
-#flutter_intl:
-#  enabled: true
+flutter_intl:
+  enabled: true

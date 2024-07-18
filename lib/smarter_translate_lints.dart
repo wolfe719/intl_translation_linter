@@ -20,15 +20,15 @@ class MyCustomLintCode extends DartLintRule {
   /// Metadata about the warning that will show-up in the IDE.
   /// This is used for `// ignore: code` and enabling/disabling the lint
   static final _code = LintCode(
-    name: 'smart_translate_lint_role',
-    problemMessage: 'Translate this line',
+    name: 'smarter_translate_lint_use_s_role',
+    problemMessage: 'Use S.of(context) or S.current',
     errorSeverity: ErrorSeverity.INFO,
   );
-  static final _code1 = LintCode(
-    name: 'smart_translate_lint_locale_keys_role',
-    problemMessage: 'Use LocaleKeys',
-    errorSeverity: ErrorSeverity.INFO,
-  );
+  // static final _code1 = LintCode(
+  //   name: 'smarter_translate_lint_role',
+  //   problemMessage: 'Translate this line',
+  //   errorSeverity: ErrorSeverity.INFO,
+  // );
 
   @override
   void run(
@@ -42,24 +42,25 @@ class MyCustomLintCode extends DartLintRule {
             argument.staticParameterElement?.type
                     .getDisplayString(withNullability: false) ==
                 'String') {
-          if (!argument.toSource().contains('LocaleKeys')) {
-            //reporter.atToken(argument.beginToken, _code1, arguments: []);
+          if (!argument.toSource().contains('S.of(context)') &&
+              !argument.toSource().contains('S.current')) {
+            //reporter.atToken(argument.beginToken, _code, arguments: []);
             reporter.reportErrorForToken(
-              _code1,
+              _code,
               argument.beginToken,
               [],
             );
           }
-          if (argument.toSource().contains('i18n(') ||
-              argument.toSource().contains('tr(')) {
-            return;
-          }
-          // reporter.atToken(argument.beginToken, _code, arguments: []);
-          reporter.reportErrorForToken(
-            _code,
-            argument.beginToken,
-            [],
-          );
+          // if (argument.toSource().contains('i18n(') ||
+          //     argument.toSource().contains('tr(')) {
+          //   return;
+          // }
+          // // reporter.atToken(argument.beginToken, _code1, arguments: []);
+          // reporter.reportErrorForToken(
+          //   _code1,
+          //   argument.beginToken,
+          //   [],
+          // );
         }
       }
     });
@@ -67,24 +68,25 @@ class MyCustomLintCode extends DartLintRule {
       final constructorName = node.constructorName;
       if ((constructorName.type.element?.name == 'Text' ||
           constructorName.type.element?.name == 'AutoSizeText')) {
-        if (!node.argumentList.toString().contains('LocaleKeys')) {
-          // reporter.atNode(node, _code1, arguments: []);
+        if (!node.argumentList.toString().contains('S.of(context)') &&
+            !node.argumentList.toString().contains('S.current')) {
+          // reporter.atNode(node, _code, arguments: []);
           reporter.reportErrorForNode(
-            _code1,
+            _code,
             node,
             [],
           );
         }
-        if (node.argumentList.toString().contains('i18n(') ||
-            node.argumentList.toString().contains('tr(')) {
-          return;
-        }
-        // reporter.atNode(node, _code, arguments: []);
-        reporter.reportErrorForNode(
-          _code,
-          node,
-          [],
-        );
+        // if (node.argumentList.toString().contains('i18n(') ||
+        //     node.argumentList.toString().contains('tr(')) {
+        //   return;
+        // }
+        // // reporter.atNode(node, _code1, arguments: []);
+        // reporter.reportErrorForNode(
+        //   _code1,
+        //   node,
+        //   [],
+        // );
       }
     });
   }
