@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+
     LocalJsonLocalization.delegate.directories = ['lib/i18n'];
     return MaterialApp(
       title:
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
       ],
       supportedLocales: const [
         Locale('en', ''),
-        Locale('ar', ''),
+        Locale('es', ''),
       ],
     );
   }

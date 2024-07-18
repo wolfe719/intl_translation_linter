@@ -38,11 +38,12 @@ class MyCustomLintCode extends DartLintRule {
   ) {
     context.registry.addArgumentList((node) {
       for (final argument in node.arguments) {
-        if (getArgumens(argument) &&
+        if (getArguments(argument) &&
             argument.staticParameterElement?.type
-                    .getDisplayString(withNullability: true) ==
+                    .getDisplayString(withNullability: false) ==
                 'String') {
           if (!argument.toSource().contains('LocaleKeys')) {
+            //reporter.atToken(argument.beginToken, _code1, arguments: []);
             reporter.reportErrorForToken(
               _code1,
               argument.beginToken,
@@ -53,6 +54,7 @@ class MyCustomLintCode extends DartLintRule {
               argument.toSource().contains('tr(')) {
             return;
           }
+          // reporter.atToken(argument.beginToken, _code, arguments: []);
           reporter.reportErrorForToken(
             _code,
             argument.beginToken,
@@ -66,6 +68,7 @@ class MyCustomLintCode extends DartLintRule {
       if ((constructorName.type.element?.name == 'Text' ||
           constructorName.type.element?.name == 'AutoSizeText')) {
         if (!node.argumentList.toString().contains('LocaleKeys')) {
+          // reporter.atNode(node, _code1, arguments: []);
           reporter.reportErrorForNode(
             _code1,
             node,
@@ -76,6 +79,7 @@ class MyCustomLintCode extends DartLintRule {
             node.argumentList.toString().contains('tr(')) {
           return;
         }
+        // reporter.atNode(node, _code, arguments: []);
         reporter.reportErrorForNode(
           _code,
           node,
@@ -85,7 +89,7 @@ class MyCustomLintCode extends DartLintRule {
     });
   }
 
-  bool getArgumens(Expression argument) {
+  bool getArguments(Expression argument) {
     return argument.staticParameterElement?.name == 'label' ||
         argument.staticParameterElement?.name == 'hintText' ||
         argument.staticParameterElement?.name == 'tooltip' ||
