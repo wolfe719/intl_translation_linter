@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:localization/localization.dart';
-
-import 'locale_keys.dart';
+import 'generated/l10n.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +12,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    LocalJsonLocalization.delegate.directories = ['lib/i18n'];
+
     return MaterialApp(
       title:
           'Flutter Demo', // this example not using locale keys will warn in the IDE
@@ -26,16 +24,13 @@ class MyApp extends StatelessWidget {
           title:
               'Flutter Demo Home Page'), // this example not using locale keys will warn in the IDE
 
-      localizationsDelegates: [
+      localizationsDelegates: const [
+        S.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
-        LocalJsonLocalization.delegate,
       ],
-      supportedLocales: const [
-        Locale('en', ''),
-        Locale('ar', ''),
-      ],
+      supportedLocales: S.delegate.supportedLocales,
     );
   }
 }
@@ -55,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget
-            .title), // this example not using locale keys will warn in the IDE
+            .title), // this example not using S will warn in the IDE
       ),
       body: Center(
         child: Column(
@@ -63,11 +58,13 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             const Text(
               'not translated text',
-            ), // this example not using locale keys and not translated will warn in the IDE
+            ), // this example not using S and not translated will warn in the IDE
             Text('translated text'
-                .i18n()), // this example not using locale keys will warn in the IDE
-            Text(LocaleKeys.translated_text
-                .i18n()), // this example using locale keys and translated will not warn in the IDE
+                .trim()), // this example not using S but also calling other string manipulations will warn in the IDE
+            Text(S.of(context).translated_text
+            ), // this example using S.of(context) will not warn in the IDE
+            Text(S.current.translated_text
+            ), // this example using S.current will not warn in the IDE
           ],
         ),
       ),
