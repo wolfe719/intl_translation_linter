@@ -1,4 +1,4 @@
-# Smart Translate Lints
+# Smarter Translate Lints
 
 [![Pub Version](https://img.shields.io/pub/v/smarter_translate_lints)](https://pub.dev/packages/smarter_translate_lints)
 [![Dart SDK](https://img.shields.io/badge/Dart%20SDK-%20%3E%3D2.12.0%20%3C3.0.0-blue)](https://dart.dev)
