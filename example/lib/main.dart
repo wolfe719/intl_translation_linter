@@ -15,14 +15,14 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       title:
-          'Flutter Demo', // this example not using locale keys will warn in the IDE
+          'Flutter Demo', // this example not using S will warn in the IDE  // MaterialApp
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
       home: const MyHomePage(
           title:
-              'Flutter Demo Home Page'), // this example not using locale keys will warn in the IDE
+              'Flutter Demo Home Page'), // this example not using S will warn in the IDE
 
       localizationsDelegates: const [
         S.delegate,
@@ -58,7 +58,11 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             const Text(
               'not translated text',
-            ), // this example not using S and not translated will warn in the IDE
+            ), // this example not using S will warn in the IDE
+            // ignore: smarter_translate_lint_use_s_role
+            const Text(
+              'Still not translated text',
+            ), // this example not using S will warn in the IDE
             Text('translated text'
                 .trim()), // this example not using S but also calling other string manipulations will warn in the IDE
             Text(S.of(context).translated_text

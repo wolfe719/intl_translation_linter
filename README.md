@@ -40,6 +40,28 @@ This will enable the linting rules provided by Smarter Translate Lints in your F
 
 Once installed and configured, Smarter Translate Lints will automatically check your code for missing translation strings. If a string is not localized using  the intl pub S variable, the linter will raise a warning.
 
+Examples:
+
+```dart
+    const Text(
+    'not translated text',
+    ), // this example not using S will warn in the IDE
+
+    // ignore: smarter_translate_lint_use_s_role
+    const Text(
+    'Still not translated text',
+    ), // this example not using S will NOTE warn in the IDE
+
+    Text('translated text'
+        .trim()), // this example not using S but also calling other string manipulations will warn in the IDE
+
+    Text(S.of(context).translated_text
+    ), // this example using S.of(context) will not warn in the IDE
+
+    Text(S.current.translated_text
+    ), // this example using S.current will not warn in the IDE
+```
+
 ## Conclusion
 
 Smarter Translate Lints is an essential tool for maintaining high-quality, accessible code in multilingual Flutter applications. By catching and warning about missing translations, it helps ensure that your app can reach a global audience.
