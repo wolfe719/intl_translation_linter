@@ -7,3 +7,4 @@
 pubspec.lock
 /.idea
 /example/lib/generated
+.DS_Store
