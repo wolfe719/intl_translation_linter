@@ -1,6 +1,6 @@
 name: smarter_translate_lints
 description: Smarter Translate Lints is a Flutter custom linting plugin that helps catch missing translation strings in your code.
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/wolfe719
 repository: https://github.com/wolfe719/smarter_translate_lints
 environment:

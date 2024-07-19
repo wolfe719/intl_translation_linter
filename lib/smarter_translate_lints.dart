@@ -22,7 +22,7 @@ class MyCustomLintCode extends DartLintRule {
   static final _code = LintCode(
     name: 'smarter_translate_lint_use_s_role',
     problemMessage: 'Use S.of(context) or S.current',
-    errorSeverity: ErrorSeverity.INFO,
+    errorSeverity: ErrorSeverity.WARNING,
   );
   // static final _code1 = LintCode(
   //   name: 'smarter_translate_lint_role',
