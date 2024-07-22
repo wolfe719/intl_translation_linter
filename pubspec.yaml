@@ -1,6 +1,6 @@
 name: intl_translation_linter
 description: Intl Translation Linter is a Flutter custom linting plugin that helps catch missing translation strings in your code.
-version: 1.0.2
+version: 1.0.3
 homepage: https://github.com/wolfe719
 repository: https://github.com/wolfe719/intl_translation_linter
 environment:
@@ -18,4 +18,4 @@ dev_dependencies:
 
 # Include your custom lint as a dependency (replace with the actual package name)
 # dependency_overrides:
-#    smarter_translate_lints: ^1.0.0
+#    intl_translation_linter: ^1.0.3

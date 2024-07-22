@@ -14,7 +14,7 @@ To install Intl Translation Linter, add it as a dependency in your `pubspec.yaml
 ```yaml
 dev_dependencies:
   custom_lint: ^latest_version
-  intl_translation_linter: ^1.0.2
+  intl_translation_linter: ^1.0.3
 ```
 
 Then, run `flutter pub get` to fetch the package.
