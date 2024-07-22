@@ -44,12 +44,12 @@ class MyCustomLintCode extends DartLintRule {
                 'String') {
           if (!argument.toSource().contains('S.of(context)') &&
               !argument.toSource().contains('S.current')) {
-            reporter.atToken(argument.beginToken, _code, arguments: [], contextMessages: []);
-            // reporter.reportErrorForToken(
-            //   _code,
-            //   argument.beginToken,
-            //   [],
-            // );
+            //reporter.atToken(argument.beginToken, _code, arguments: [], contextMessages: []);
+            reporter.reportErrorForToken(
+              _code,
+              argument.beginToken,
+              [],
+            );
           }
           // if (argument.toSource().contains('i18n(') ||
           //     argument.toSource().contains('tr(')) {
