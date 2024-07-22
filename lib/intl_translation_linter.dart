@@ -20,8 +20,8 @@ class MyCustomLintCode extends DartLintRule {
   /// Metadata about the warning that will show-up in the IDE.
   /// This is used for `// ignore: code` and enabling/disabling the lint
   static final _code = LintCode(
-    name: 'smarter_translate_lint_use_s_role',
-    problemMessage: 'Use S.of(context) or S.current',
+    name: 'intl_translation_linter_use_s_role',
+    problemMessage: 'Use S.of(context).xxxx or S.current.xxxx to access internationalized strings',
     errorSeverity: ErrorSeverity.WARNING,
   );
   // static final _code1 = LintCode(
@@ -44,12 +44,12 @@ class MyCustomLintCode extends DartLintRule {
                 'String') {
           if (!argument.toSource().contains('S.of(context)') &&
               !argument.toSource().contains('S.current')) {
-            //reporter.atToken(argument.beginToken, _code, arguments: []);
-            reporter.reportErrorForToken(
-              _code,
-              argument.beginToken,
-              [],
-            );
+            reporter.atToken(argument.beginToken, _code, arguments: [], contextMessages: []);
+            // reporter.reportErrorForToken(
+            //   _code,
+            //   argument.beginToken,
+            //   [],
+            // );
           }
           // if (argument.toSource().contains('i18n(') ||
           //     argument.toSource().contains('tr(')) {
