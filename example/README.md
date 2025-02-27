@@ -8,8 +8,8 @@ To include the Intl Translation Linter, you will need to modify your pubspec.yam
 
 ```yaml
 dev_dependencies:
-  custom_lint: ^0.6.4
-  intl_translation_linter: ^1.0.2
+  custom_lint: ^0.6.8
+  intl_translation_linter: ^1.0.4
 ```
 
 

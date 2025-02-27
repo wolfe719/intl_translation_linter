@@ -1,3 +1,12 @@
+## 1.0.4
+
+- Updated to Flutter 3.24.4 / Dart 3.5.4
+- Ignore Ignore extra LintCode in analyzer/error/error.dart
+- Updated to custom_lint 0.6.8
+- Updated to analyzer 6.7.0
+- Update to custom_lint_builder 0.6.8
+- Renamed generic MyCustomLintCode class to  IntlTranslationLintRule
+
 ## 1.0.3
 
 - Reverted ErrorReporter.atToken() call to deprecated call
